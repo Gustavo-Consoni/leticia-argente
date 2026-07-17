@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leticia Argente | Nutricionista — v2</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        /* Paleta do cliente */
+        clay:   { DEFAULT:'#C96B37', 50:'#FAEFE7', 100:'#F3DCCB', 300:'#DFA47A', 500:'#C96B37', 600:'#B25A2A', 700:'#94481F', 800:'#733717' },
+        slate:  { DEFAULT:'#788990', 50:'#EEF1F2', 100:'#DDE3E5', 200:'#C2CCD0', 300:'#A3B1B7', 400:'#788990', 500:'#64757C', 600:'#526167', 700:'#414D53', 800:'#333D42', 900:'#262E32' },
+        olive:  { DEFAULT:'#AFB57F', 50:'#F5F6EC', 100:'#EAECD9', 200:'#D8DCB8', 300:'#C4C99B', 400:'#AFB57F', 500:'#98A063', 600:'#7C844C', 700:'#61683B' },
+        cream:  '#F0EDE4',
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"','serif'],
+        body:    ['Jost','sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak]{display:none!important}
+  .placeholder-img{background:linear-gradient(135deg,#D8DCB8 0%,#AFB57F 55%,#788990 100%)}
+
+  /* Carrossel infinito de depoimentos */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 40s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+</style>
+</head>
+<body class="bg-cream font-body text-slate-800 antialiased" x-data="{ menu:false }">
+
+<!-- ===================== HEADER ===================== -->
+<header class="top-0 z-50 fixed inset-x-0 bg-slate-900/40 backdrop-blur border-white/10 border-b">
+  <div class="flex justify-between items-center mx-auto px-5 max-w-6xl h-16">
+    <a href="#inicio" class="flex items-center gap-3">
+      <span class="flex justify-center items-center border border-clay-300 rounded-full w-9 h-9 font-display text-clay-300 text-lg">LA</span>
+      <span class="leading-tight">
+        <span class="block font-display text-cream text-lg tracking-wide">LETICIA ARGENTE</span>
+        <span class="block text-[10px] text-slate-200 uppercase tracking-[0.35em]">Nutricionista</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-cream/90 text-sm">
+      <a href="#apresentacao" class="hover:text-clay-300 transition">Sobre</a>
+      <a href="#planos" class="hover:text-clay-300 transition">Planos</a>
+      <a href="#como-funciona" class="hover:text-clay-300 transition">Como funciona</a>
+      <a href="#duvidas" class="hover:text-clay-300 transition">Dúvidas</a>
+      <a href="#blog" class="hover:text-clay-300 transition">Blog</a>
+      <a href="#planos" class="bg-clay-500 hover:bg-clay-600 px-5 py-2 rounded-full text-cream transition">Agendar consulta</a>
+    </nav>
+    <button class="md:hidden text-cream" @click="menu = !menu" aria-label="Abrir menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path x-show="!menu" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/>
+        <path x-show="menu" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 6l12 12M6 18L18 6"/>
+      </svg>
+    </button>
+  </div>
+  <div x-show="menu" x-cloak x-transition class="md:hidden flex flex-col gap-4 bg-slate-900/95 px-5 py-4 border-white/10 border-t text-cream/90">
+    <a href="#apresentacao" @click="menu=false">Sobre</a>
+    <a href="#planos" @click="menu=false">Planos</a>
+    <a href="#como-funciona" @click="menu=false">Como funciona</a>
+    <a href="#duvidas" @click="menu=false">Dúvidas</a>
+    <a href="#blog" @click="menu=false">Blog</a>
+    <a href="#planos" @click="menu=false" class="bg-clay-500 px-5 py-2 rounded-full text-cream text-center">Agendar consulta</a>
+  </div>
+</header>
+
+<!-- ===================== 1. HERO COM VÍDEO DE FUNDO ===================== -->
+<section id="inicio" class="relative flex justify-center items-center min-h-screen overflow-hidden">
+  <!-- Fallback: aparece apenas enquanto não houver vídeo (fica atrás dele) -->
+  <div class="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-olive-700"></div>
+  <!-- Vídeo de fundo: substitua o src pelo arquivo real (ex.: /videos/hero.mp4) -->
+  <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <!-- Película para leitura do texto -->
+  <div class="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-900/55 to-slate-900/75"></div>
+
+  <div class="z-10 relative mx-auto px-5 pt-16 max-w-3xl text-cream text-center">
+    <p class="mb-5 text-clay-300 text-xs uppercase tracking-[0.35em]">Nutrição com propósito</p>
+    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl uppercase leading-[1.05]">
+      Quem controla o que come, controla qualquer área da vida
+    </h1>
+    <p class="mx-auto mt-6 max-w-xl text-cream/85">
+      Emagrecimento saudável e reeducação alimentar com acompanhamento humano,
+      individualizado e sem dietas restritivas.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mt-10">
+      <a href="#planos" class="bg-clay-500 hover:bg-clay-600 px-8 py-3 rounded-full text-cream transition">Agendar consulta</a>
+      <a href="#apresentacao" class="hover:bg-cream/10 px-8 py-3 border border-cream/60 rounded-full text-cream transition">Conhecer meu trabalho</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== 2. APRESENTAÇÃO ===================== -->
+<section id="apresentacao" class="items-center gap-14 grid md:grid-cols-2 mx-auto px-5 py-24 max-w-6xl">
+  <div>
+    <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">Apresentação</p>
+    <h2 class="mb-6 font-display text-slate-800 text-4xl md:text-5xl">Quem é Leticia?</h2>
+    <p class="mb-4 text-slate-600">
+      Sou nutricionista formada, apaixonada por ajudar pessoas a emagrecerem e a viverem
+      melhor por meio de estratégias alimentares individualizadas, respeitando a rotina,
+      as preferências e os objetivos de cada paciente.
+    </p>
+    <p class="mb-8 text-slate-600">
+      Meu compromisso é te guiar com conhecimento, acolhimento e estratégia para alcançar
+      resultados duradouros — sem terrorismo nutricional.
+    </p>
+    <div class="flex flex-wrap gap-6 mb-8">
+      <div><p class="font-display text-clay-600 text-4xl">+800</p><p class="text-slate-500 text-sm">pacientes atendidos</p></div>
+      <div><p class="font-display text-clay-600 text-4xl">+10</p><p class="text-slate-500 text-sm">anos de experiência</p></div>
+      <div><p class="font-display text-clay-600 text-4xl">98%</p><p class="text-slate-500 text-sm">de satisfação</p></div>
+    </div>
+    <a href="#planos" class="inline-block bg-clay-500 hover:bg-clay-600 px-7 py-3 rounded-full text-cream transition">Quero começar agora</a>
+  </div>
+  <div class="relative">
+    <div class="flex justify-center items-center shadow-xl rounded-3xl aspect-[4/5] text-cream/90 text-sm placeholder-img">Foto da profissional</div>
+    <div class="-bottom-5 -left-5 absolute bg-cream shadow-lg px-5 py-3 rounded-2xl">
+      <span class="block font-medium text-slate-800 text-sm">Leticia Argente</span>
+      <span class="block text-slate-400 text-xs">Nutricionista · CRN 00000</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. PLANOS ===================== -->
+<section id="planos" class="bg-olive-100 py-24">
+  <div class="mx-auto px-5 max-w-6xl">
+    <div class="mb-14 text-center">
+      <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">Planos</p>
+      <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Escolha o plano ideal para você</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-slate-600">Dois formatos de acompanhamento, o mesmo cuidado em cada etapa.</p>
+    </div>
+    <div class="gap-8 grid md:grid-cols-2 mx-auto max-w-4xl">
+
+      <!-- Plano Essencial -->
+      <div class="flex flex-col bg-cream shadow-sm p-8 border border-slate-200 rounded-3xl">
+        <h3 class="font-display text-slate-800 text-3xl">Essencial</h3>
+        <p class="mt-1 text-slate-500 text-sm">Para quem quer começar a reeducação alimentar.</p>
+        <p class="mt-6"><span class="font-display text-slate-800 text-5xl">R$ 250</span><span class="text-slate-500 text-sm"> / consulta</span></p>
+        <ul class="flex-1 space-y-3 mt-8 text-slate-700 text-sm">
+          <li class="flex gap-3"><span class="text-clay-600">✓</span>Consulta online ou presencial</li>
+          <li class="flex gap-3"><span class="text-clay-600">✓</span>Avaliação completa e análise de exames</li>
+          <li class="flex gap-3"><span class="text-clay-600">✓</span>Plano alimentar personalizado</li>
+          <li class="flex gap-3"><span class="text-clay-600">✓</span>Retorno em até 30 dias</li>
+          <li class="flex gap-3 text-slate-400"><span>✕</span>Suporte por WhatsApp</li>
+          <li class="flex gap-3 text-slate-400"><span>✕</span>Ajustes ilimitados no plano</li>
+        </ul>
+        <a href="#" class="hover:bg-clay-500 mt-8 px-7 py-3 border border-clay-500 rounded-full text-clay-600 hover:text-cream text-center transition">Agendar consulta</a>
+      </div>
+
+      <!-- Plano Acompanhamento (destaque) -->
+      <div class="relative flex flex-col bg-slate-800 shadow-xl p-8 rounded-3xl overflow-hidden text-cream">
+        <span class="top-6 right-6 absolute bg-clay-500 px-3 py-1 rounded-full text-xs tracking-wide">Mais escolhido</span>
+        <h3 class="font-display text-3xl">Acompanhamento</h3>
+        <p class="mt-1 text-slate-300 text-sm">Para quem quer resultado com suporte contínuo.</p>
+        <p class="mt-6"><span class="font-display text-5xl">R$ 590</span><span class="text-slate-300 text-sm"> / trimestre</span></p>
+        <ul class="flex-1 space-y-3 mt-8 text-slate-100 text-sm">
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>3 consultas (online ou presencial)</li>
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>Avaliação completa e análise de exames</li>
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>Plano alimentar personalizado</li>
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>Suporte por WhatsApp em horário comercial</li>
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>Ajustes ilimitados no plano</li>
+          <li class="flex gap-3"><span class="text-clay-300">✓</span>Acesso ao material exclusivo de receitas</li>
+        </ul>
+        <a href="#" class="bg-clay-500 hover:bg-clay-600 mt-8 px-7 py-3 rounded-full text-cream text-center transition">Quero este plano</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. PASSO A PASSO ===================== -->
+<section id="como-funciona" class="mx-auto px-5 py-24 max-w-6xl">
+  <div class="mb-14 text-center">
+    <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">Passo a passo</p>
+    <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Como funciona a consultoria</h2>
+  </div>
+  <div class="gap-5 grid sm:grid-cols-2 lg:grid-cols-4">
+    <template x-for="(passo, i) in [
+      {t:'Agendamento', d:'Você escolhe o plano, a data e o formato: online ou presencial.'},
+      {t:'Avaliação completa', d:'Análise da rotina, histórico de saúde, exames e composição corporal.'},
+      {t:'Plano personalizado', d:'Cardápio prático e realista construído para o seu dia a dia.'},
+      {t:'Acompanhamento', d:'Ajustes contínuos e suporte até você chegar ao seu objetivo.'}
+    ]">
+      <div class="group bg-white/60 shadow-sm hover:shadow-md border border-slate-200 hover:border-clay-300 rounded-2xl overflow-hidden transition duration-300">
+        <div class="flex justify-center items-center aspect-[4/3] text-cream/90 text-xs placeholder-img">Imagem</div>
+        <div class="p-5">
+          <p class="mb-1 text-clay-500 text-xs" x-text="'Etapa 0' + (i+1)"></p>
+          <h3 class="font-medium text-slate-800" x-text="passo.t"></h3>
+          <p class="mt-2 text-slate-600 text-sm" x-text="passo.d"></p>
+        </div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ===================== 5. DEPOIMENTOS (CARROSSEL INFINITO) ===================== -->
+<section class="bg-slate-700 py-24 overflow-hidden text-cream">
+  <div class="mx-auto mb-12 px-5 max-w-6xl text-center">
+    <p class="mb-3 text-clay-300 text-xs uppercase tracking-[0.3em]">Depoimentos</p>
+    <h2 class="font-display text-4xl md:text-5xl">O que meus pacientes dizem</h2>
+  </div>
+
+  <div class="relative marquee"
+    x-data='{ deps: [
+      {n:"Mariana S.", t:"Emagreci com saúde e sem abrir mão da minha rotina. O plano é realista e o acompanhamento faz toda a diferença."},
+      {n:"Carlos A.", t:"Depois de anos tentando sozinho, finalmente entendi como comer bem. Resultados que se mantêm há meses."},
+      {n:"Patrícia L.", t:"Atendimento humano e atencioso. Cada consulta é um passo a mais em direção ao meu objetivo."},
+      {n:"Renato F.", t:"O suporte pelo WhatsApp me ajudou nos momentos de dúvida. Nunca me senti sozinho no processo."},
+      {n:"Juliana M.", t:"Aprendi a comer de verdade. Perdi medidas e ganhei disposição sem dietas malucas."},
+      {n:"Fernanda C.", t:"Profissional extremamente atenciosa. O plano se encaixou perfeitamente na minha rotina corrida."}
+    ] }'>
+    <!-- Fades laterais -->
+    <div class="left-0 z-10 absolute inset-y-0 bg-gradient-to-r from-slate-700 to-transparent w-24 pointer-events-none"></div>
+    <div class="right-0 z-10 absolute inset-y-0 bg-gradient-to-l from-slate-700 to-transparent w-24 pointer-events-none"></div>
+
+    <div class="flex gap-6 px-3 w-max marquee-track">
+      <!-- Trilha 1 -->
+      <template x-for="(dep, i) in deps" :key="'a'+i">
+        <figure class="flex flex-col gap-4 bg-slate-600/60 p-6 border border-slate-500 rounded-2xl w-80 shrink-0">
+          <div class="flex gap-1 text-yellow-400" aria-label="5 estrelas">
+            <template x-for="s in 5"><svg class="fill-current w-4 h-4" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.9z"/></svg></template>
+          </div>
+          <blockquote class="text-slate-100 text-sm leading-relaxed" x-text="dep.t"></blockquote>
+          <figcaption class="flex items-center gap-3 mt-auto">
+            <span class="rounded-full w-9 h-9 placeholder-img"></span>
+            <span class="font-medium text-sm" x-text="dep.n"></span>
+          </figcaption>
+        </figure>
+      </template>
+      <!-- Trilha 2 (cópia para o loop infinito) -->
+      <template x-for="(dep, i) in deps" :key="'b'+i">
+        <figure class="flex flex-col gap-4 bg-slate-600/60 p-6 border border-slate-500 rounded-2xl w-80 shrink-0" aria-hidden="true">
+          <div class="flex gap-1 text-yellow-400">
+            <template x-for="s in 5"><svg class="fill-current w-4 h-4" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.9z"/></svg></template>
+          </div>
+          <blockquote class="text-slate-100 text-sm leading-relaxed" x-text="dep.t"></blockquote>
+          <figcaption class="flex items-center gap-3 mt-auto">
+            <span class="rounded-full w-9 h-9 placeholder-img"></span>
+            <span class="font-medium text-sm" x-text="dep.n"></span>
+          </figcaption>
+        </figure>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. VÍDEO DO CONSULTÓRIO ===================== -->
+<section class="mx-auto px-5 py-24 max-w-6xl">
+  <div class="mb-12 text-center">
+    <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">Estrutura</p>
+    <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Conheça o consultório por dentro</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-slate-600">Um espaço pensado para você se sentir acolhido em cada atendimento presencial.</p>
+  </div>
+  <div class="relative shadow-xl mx-auto rounded-3xl max-w-4xl aspect-video overflow-hidden"
+    x-data="{ tocando: false }">
+    <!-- Substitua o src pelo vídeo real do consultório (ex.: /videos/consultorio.mp4) -->
+    <video x-ref="video" class="w-full h-full object-cover" controls x-show="tocando" x-cloak>
+      <source src="" type="video/mp4">
+    </video>
+    <div x-show="!tocando" class="group absolute inset-0 flex justify-center items-center cursor-pointer placeholder-img"
+      @click="tocando = true; $nextTick(() => $refs.video.play())">
+      <span class="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/20 transition"></span>
+      <span class="relative flex justify-center items-center bg-cream/95 shadow-lg rounded-full w-20 h-20 group-hover:scale-105 transition">
+        <svg class="ml-1 w-8 h-8 text-clay-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span class="bottom-6 absolute text-cream/90 text-sm">Tour pelo consultório</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. PERGUNTAS FREQUENTES ===================== -->
+<section id="duvidas" class="bg-olive-100 py-24">
+  <div class="mx-auto px-5 max-w-3xl"
+    x-data="{ aberta: null,
+      faqs: [
+        {p:'A consulta online funciona?', r:'Sim. A consulta online tem a mesma estrutura da presencial: avaliação completa, plano personalizado e acompanhamento contínuo — tudo por videochamada.'},
+        {p:'O plano alimentar é personalizado?', r:'Totalmente. O plano é construído a partir da sua rotina, preferências alimentares, exames e objetivos.'},
+        {p:'Preciso seguir dieta restritiva?', r:'Não. O foco é reeducação alimentar com estratégias sustentáveis, sem cortar grupos alimentares de forma radical.'},
+        {p:'Qual a diferença entre os planos?', r:'O Essencial é uma consulta avulsa com retorno. O Acompanhamento inclui 3 consultas, suporte por WhatsApp e ajustes ilimitados no plano durante o trimestre.'},
+        {p:'Atende convênios?', r:'O atendimento é particular, mas é possível solicitar reembolso junto ao seu convênio, conforme as regras do seu plano.'},
+        {p:'Quanto tempo leva para chegar ao meu peso ideal?', r:'Depende do seu ponto de partida e da sua constância. Nas primeiras semanas já é possível notar mudanças no corpo e na disposição.'}
+      ] }">
+    <div class="mb-10 text-center">
+      <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">FAQ</p>
+      <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Perguntas frequentes</h2>
+    </div>
+    <div class="space-y-3">
+      <template x-for="(f, i) in faqs" :key="i">
+        <div class="bg-cream border border-olive-300 rounded-2xl overflow-hidden">
+          <button @click="aberta = (aberta === i ? null : i)"
+            class="flex justify-between items-center px-6 py-4 w-full text-slate-800 text-left"
+            :aria-expanded="aberta === i">
+            <span x-text="f.p"></span>
+            <svg class="w-5 h-5 text-clay-500 transition-transform duration-300 ease-in-out shrink-0" :class="aberta === i && 'rotate-45'"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div x-show="aberta === i" x-collapse.duration.400ms x-cloak>
+            <p class="px-6 pb-5 text-slate-600 text-sm" x-text="f.r"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. BLOG ===================== -->
+<section id="blog" class="mx-auto px-5 py-24 max-w-6xl">
+  <div class="flex md:flex-row flex-col md:justify-between md:items-end gap-6 mb-12">
+    <div>
+      <p class="mb-3 text-clay-600 text-xs uppercase tracking-[0.3em]">Blog</p>
+      <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Artigos e conteúdos</h2>
+    </div>
+    <a href="#" class="text-clay-600 hover:text-clay-700 text-sm transition">Ver todos os artigos →</a>
+  </div>
+  <div class="gap-6 grid sm:grid-cols-2 lg:grid-cols-3">
+    <template x-for="post in [
+      {c:'Emagrecimento', d:'02 Jul 2026', t:'5 hábitos simples que aceleram o emagrecimento saudável', r:'Pequenas mudanças na rotina que geram grandes resultados ao longo das semanas.'},
+      {c:'Saúde intestinal', d:'18 Jun 2026', t:'Intestino saudável: por onde começar a cuidar do seu', r:'Entenda a relação entre a saúde intestinal, a imunidade e a disposição no dia a dia.'},
+      {c:'Reeducação alimentar', d:'05 Jun 2026', t:'Como montar um prato equilibrado sem complicação', r:'Um guia prático para equilibrar proteínas, carboidratos e vegetais em cada refeição.'}
+    ]">
+      <article class="group flex flex-col bg-white/60 hover:shadow-lg border border-slate-200 hover:border-clay-300 rounded-2xl overflow-hidden transition duration-300">
+        <a href="#" class="block relative aspect-[16/10] placeholder-img">
+          <span class="top-4 left-4 absolute bg-cream/95 px-3 py-1 rounded-full text-clay-600 text-xs" x-text="post.c"></span>
+        </a>
+        <div class="flex flex-col flex-1 p-6">
+          <p class="text-slate-400 text-xs" x-text="post.d"></p>
+          <h3 class="mt-2 font-medium text-slate-800 group-hover:text-clay-600 leading-snug transition" x-text="post.t"></h3>
+          <p class="flex-1 mt-2 text-slate-600 text-sm" x-text="post.r"></p>
+          <a href="#" class="mt-4 text-clay-600 hover:text-clay-700 text-sm transition">Ler artigo →</a>
+        </div>
+      </article>
+    </template>
+  </div>
+</section>
+
+<!-- ===================== 9. RODAPÉ ===================== -->
+<footer class="bg-slate-800 text-slate-200">
+  <div class="gap-10 grid md:grid-cols-4 mx-auto px-5 py-14 max-w-6xl">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-3">
+        <span class="flex justify-center items-center border border-clay-400 rounded-full w-9 h-9 font-display text-clay-300 text-lg">LA</span>
+        <span class="leading-tight">
+          <span class="block font-display text-cream text-lg tracking-wide">LETICIA ARGENTE</span>
+          <span class="block text-[10px] text-slate-400 uppercase tracking-[0.35em]">Nutricionista</span>
+        </span>
+      </div>
+      <p class="mt-4 max-w-sm text-slate-300 text-sm">
+        Nutrição com propósito: emagrecimento saudável e reeducação alimentar,
+        com atendimento online e presencial.
+      </p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" aria-label="Instagram" class="flex justify-center items-center bg-slate-700 hover:bg-clay-500 rounded-full w-9 h-9 transition">
+          <svg class="fill-current w-4 h-4 text-cream" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.3 4 3.9 2.4 7.1 2.3c1.3-.1 1.7-.1 4.9-.1zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.5a1.4 1.4 0 1 1-2.9 0 1.4 1.4 0 0 1 2.9 0z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" class="flex justify-center items-center bg-slate-700 hover:bg-clay-500 rounded-full w-9 h-9 transition">
+          <svg class="fill-current w-4 h-4 text-cream" viewBox="0 0 24 24"><path d="M23.5 7.2a3 3 0 0 0-2.1-2.1C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.6A3 3 0 0 0 .5 7.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-4.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="mb-4 font-medium text-cream">Menu</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#apresentacao" class="hover:text-cream transition">Sobre</a></li>
+        <li><a href="#planos" class="hover:text-cream transition">Planos</a></li>
+        <li><a href="#como-funciona" class="hover:text-cream transition">Como funciona</a></li>
+        <li><a href="#duvidas" class="hover:text-cream transition">Dúvidas</a></li>
+        <li><a href="#blog" class="hover:text-cream transition">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="mb-4 font-medium text-cream">Contato</h4>
+      <ul class="space-y-2 text-slate-300 text-sm">
+        <li>Rua Exemplo, 123 — Centro<br>Sua Cidade/UF</li>
+        <li>Seg. a sex., 8h às 18h</li>
+        <li>(00) 90000-0000</li>
+        <li>contato@leticiaargente.com.br</li>
+        <li>CRN 00000</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-slate-700 border-t">
+    <div class="flex md:flex-row flex-col justify-between items-center gap-3 mx-auto px-5 py-5 max-w-6xl text-slate-400 text-xs">
+      <p>© 2026 Leticia Argente. Todos os direitos reservados.</p>
+      <p>Nutricionista · CRN 00000</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== BOTÃO FLUTUANTE WHATSAPP ===================== -->
+<a href="https://wa.me/5500900000000" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"
+  class="right-6 bottom-6 z-50 fixed flex justify-center items-center bg-[#25D366] shadow-black/25 shadow-lg rounded-full w-14 h-14 hover:scale-110 transition-transform">
+  <svg class="fill-white w-7 h-7" viewBox="0 0 32 32">
+    <path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 17c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.2-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.4-1.5-5.6-4.9-5.8-5.1-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4.9-.4h.6c.2 0 .5-.1.7.5.3.7.9 2.3 1 2.4.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.8 1.7 3.2 1.9.4.2.6.2.8-.1.2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.1 1 2.4 1.2.4.2.6.3.7.4.1.3.1.8-.2 1.6z"/>
+  </svg>
+</a>
+
+</body>
+</html>
