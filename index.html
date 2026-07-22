@@ -115,14 +115,14 @@
     <!-- ===================== 1. HERO COM VÍDEO DE FUNDO ===================== -->
     <section id="inicio" class="relative flex justify-center items-center min-h-screen overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-olive-700"></div>
-        <video class="absolute inset-0 w-full h-full object-cover lg:object-center [object-position:80%_50%]" autoplay muted loop playsinline poster="">
+        <video class="absolute inset-0 size-full object-cover lg:object-center [object-position:80%_50%]" autoplay muted loop playsinline poster="">
             <source src="static/videos/background.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-900/55 to-slate-900/75"></div>
         <div class="z-10 relative mx-auto px-6 pt-16 max-w-3xl text-cream text-center">
             <p class="mb-6 text-clay-300 text-xs uppercase tracking-[0.3em]">Nutrição com propósito</p>
-            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl uppercase !leading-tight">EMAGRECER DE VEZ NÃO É SORTE<br>É MÉTODO</h1>
-            <p class="mx-auto mt-6 max-w-xl text-cream/85">Emagrecimento saudável e reeducação alimentar com acompanhamento humano, individualizado e sem dietas restritivas</p>
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl uppercase">EMAGRECER DE VEZ NÃO É SORTE<br>É MÉTODO</h1>
+            <p class="mx-auto mt-6 max-w-xl text-cream/85 text-xl">E um método pensado pra sua vida real</p>
             <div class="flex justify-center gap-4 mt-10">
                 <a href="#planos" class="bg-clay-500 hover:bg-clay-600 px-6 sm:px-8 py-4 rounded-full text-cream whitespace-nowrap transition duration-300">Agendar consulta</a>
                 <a href="#apresentacao" class="hover:bg-cream/10 px-6 sm:px-8 py-4 border border-cream/60 rounded-full text-cream whitespace-nowrap transition duration-300">Conhecer mais</a>
@@ -131,10 +131,10 @@
     </section>
 
     <!-- ===================== 2. APRESENTAÇÃO ===================== -->
-    <section id="apresentacao" class="items-center gap-14 grid md:grid-cols-2 mx-auto px-6 py-24 max-w-6xl">
+    <section id="apresentacao" class="items-center gap-12 grid md:grid-cols-2 mx-auto px-6 py-16 max-w-6xl">
         <div>
             <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Conheça sua nutri</p>
-            <h2 class="mb-6 font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Muito prazer<br>eu sou a Letícia</h2>
+            <h2 class="mb-6 font-display text-slate-800 text-4xl md:text-5xl">Muito prazer<br>eu sou a Letícia</h2>
             <p class="mb-4 text-slate-600">Antes de ser nutricionista, fui paciente. Convivi com o sobrepeso até os 30, entre dietas e reganhos, até parar de seguir regras e começar a entender a comida e meu corpo: perdi mais de 20 kg e troquei a advocacia pela nutrição</p>
             <p class="mb-8 text-slate-600">Hoje oriento mulheres a construírem uma rotina alimentar que funcione na vida que já vivem. Estratégias simples, escolhas possíveis, constância. Eu sou a prova de que isso funciona</p>
             <a href="#" class="inline-flex items-center gap-2 font-medium text-clay-600 hover:text-clay-700 transition duration-300">
@@ -143,7 +143,7 @@
             </a>
         </div>
         <div class="relative">
-            <img src="static/images/introduction.webp" alt="Foto de Leticia Argente, nutricionista" class="shadow-xl rounded-3xl w-full object-cover aspect-[4/5]">
+            <img src="static/images/WhatsApp Image 2026-07-22 at 16.37.07.jpeg" alt="Foto de Leticia Argente, nutricionista" class="shadow-xl rounded-3xl w-full object-cover aspect-[4/5]">
             <div class="-bottom-6 left-1/2 md:-left-6 absolute bg-cream shadow-lg px-6 py-4 rounded-2xl -translate-x-1/2 md:translate-x-0">
                 <span class="block font-medium text-slate-800 text-sm">Leticia Argente</span>
                 <span class="block text-slate-400 text-xs whitespace-nowrap">Nutricionista - CRN 00000</span>
@@ -152,51 +152,51 @@
     </section>
 
     <!-- ===================== 3. PLANOS ===================== -->
-    <section id="planos" class="bg-olive-100 py-24">
-        <div class="mx-auto px-6 max-w-6xl">
-            <div class="mb-14 text-center">
-                <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Planos</p>
-                <h2 class="font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Escolha como vou te ajudar</h2>
+<section id="planos" class="bg-slate-800 py-16">
+    <div class="mx-auto px-6 max-w-6xl">
+        <div class="mb-12 text-center">
+            <p class="mb-4 text-clay-300 text-xs uppercase tracking-[0.3em]">Planos</p>
+            <h2 class="font-display text-cream text-4xl md:text-5xl">Escolha como vou te ajudar:</h2>
+        </div>
+        <div class="items-start gap-8 grid md:grid-cols-2 mx-auto max-w-5xl">
+            <!-- Consulta -->
+            <div class="flex flex-col bg-cream shadow-sm p-8 border border-slate-200 rounded-3xl h-full">
+                <h3 class="md:mt-4 font-display text-slate-800 text-3xl text-center">Consulta</h3>
+                <p class="mt-6 text-center"><span class="font-display text-slate-800 text-4xl">2x de R$ 175</span></p>
+                <p class="mt-2 text-clay-600 text-sm text-center">ou R$ 337 no pix</p>
+                <ul class="flex-1 space-y-4 mt-8 text-slate-700 text-sm">
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Avaliação clínica completa (até 1h30) + bioimpedância</li>
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Plano alimentar no app (até 72h úteis) + material extra</li>
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Feedback semanal + retorno em até 30 dias</li>
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Suporte via WhatsApp pra dúvidas sobre o direcionamento</li>
+                </ul>
+                <p class="mt-6 pt-6 border-slate-200 border-t text-slate-500 text-sm">Avaliação antropométrica avulsa: <span class="font-medium text-slate-700">R$ 97</span></p>
+                <a href="#" class="hover:bg-clay-500 mt-6 px-8 py-4 border border-clay-500 rounded-full text-clay-600 hover:text-cream text-center transition duration-300">Quero a consulta</a>
             </div>
-            <div class="items-start gap-8 grid md:grid-cols-2 mx-auto max-w-5xl">
-                <!-- Consulta -->
-                <div class="flex flex-col bg-cream shadow-sm p-8 border border-slate-200 rounded-3xl h-full">
-                    <h3 class="font-display text-slate-800 text-3xl">Consulta</h3>
-                    <p class="mt-6"><span class="font-display text-slate-800 text-4xl">2x de R$ 175</span></p>
-                    <p class="mt-2 text-clay-600 text-sm">ou R$ 337 no pix</p>
-                    <ul class="flex-1 space-y-4 mt-8 text-slate-700 text-sm">
-                        <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Avaliação clínica completa (até 1h30) + bioimpedância</li>
-                        <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Plano alimentar no app (até 72h úteis) + material extra</li>
-                        <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Feedback semanal + retorno em até 30 dias</li>
-                        <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Suporte via WhatsApp pra dúvidas sobre o direcionamento</li>
-                    </ul>
-                    <p class="mt-6 pt-6 border-slate-200 border-t text-slate-500 text-sm">Avaliação antropométrica avulsa: <span class="font-medium text-slate-700">R$ 97</span></p>
-                    <a href="#" class="hover:bg-clay-500 mt-6 px-8 py-4 border border-clay-500 rounded-full text-clay-600 hover:text-cream text-center transition duration-300">Quero a consulta</a>
-                </div>
-                <!-- Programa de Acompanhamento -->
-                <div class="relative flex flex-col bg-slate-800 shadow-xl p-8 rounded-3xl h-full overflow-hidden text-cream">
-                    <span class="top-6 right-6 absolute bg-clay-500 px-4 py-2 rounded-full text-xs tracking-wide">Mais completo</span>
-                    <h3 class="pr-28 font-display text-3xl">Programa de Acompanhamento</h3>
-                    <p class="mt-6"><span class="font-display text-4xl">6x de R$ 185</span></p>
-                    <p class="mt-2 text-clay-300 text-sm">ou R$ 1.087 no pix</p>
-                    <p class="mt-8 text-slate-300 text-sm">Tudo da Consulta, e mais:</p>
-                    <p class="mt-4 text-clay-300 text-sm tracking-wide">✨ Exclusivo do Acompanhamento</p>
-                    <ul class="flex-1 space-y-4 mt-4 text-slate-100 text-sm">
-                        <li class="flex gap-4"><span class="text-clay-300 shrink-0">✓</span>Avaliação antropométrica inclusa (sem custo adicional)</li>
-                        <li class="flex gap-4"><span class="text-clay-300 shrink-0">✓</span>4 meses de acompanhamento contínuo: consulta inicial + 3 retornos, com evolução progressiva e refinamentos ao longo do processo</li>
-                        <li class="flex gap-4"><span class="text-clay-300 shrink-0">✓</span>Orientações individualizadas para eventos especiais (viagem, aniversário, restaurante, Natal), pra você não precisar escolher entre viver a vida e manter o direcionamento</li>
-                    </ul>
-                    <a href="#" class="bg-clay-500 hover:bg-clay-600 mt-8 px-8 py-4 rounded-full text-cream text-center transition duration-300">Quero o acompanhamento</a>
-                </div>
+            <!-- Programa de Acompanhamento -->
+            <div class="relative flex flex-col bg-cream shadow-xl p-8 border border-slate-200 rounded-3xl h-full">
+                <span class="-top-4 right-4 z-10 absolute bg-clay-500 px-4 py-2 rounded-full text-cream text-xs tracking-wide">Mais completo</span>
+                <h3 class="font-display text-slate-800 text-3xl text-center">Programa de Acompanhamento</h3>
+                <p class="mt-6 text-center"><span class="font-display text-slate-800 text-4xl">6x de R$ 185</span></p>
+                <p class="mt-2 text-clay-600 text-sm text-center">ou R$ 1.087 no pix</p>
+                <p class="mt-8 text-slate-500 text-sm">Tudo da Consulta, e mais:</p>
+                <p class="mt-4 text-clay-600 text-sm tracking-wide">Exclusivo do Acompanhamento</p>
+                <ul class="flex-1 space-y-4 mt-4 text-slate-700 text-sm">
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Avaliação antropométrica inclusa (sem custo adicional)</li>
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>4 meses de acompanhamento contínuo: consulta inicial + 3 retornos, com evolução progressiva e refinamentos ao longo do processo</li>
+                    <li class="flex gap-4"><span class="text-clay-600 shrink-0">✓</span>Orientações individualizadas para eventos especiais (viagem, aniversário, restaurante, Natal), pra você não precisar escolher entre viver a vida e manter o direcionamento</li>
+                </ul>
+                <a href="#" class="bg-clay-500 hover:bg-clay-600 mt-8 px-8 py-4 rounded-full text-cream text-center transition duration-300">Quero o acompanhamento</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===================== 4. PASSO A PASSO (STEPPER HORIZONTAL) ===================== -->
-    <section id="como-funciona" class="mx-auto px-6 py-24 max-w-6xl">
+    <section id="como-funciona" class="mx-auto px-6 py-16 max-w-6xl">
         <div class="mb-16 text-center">
             <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Passo a passo</p>
-            <h2 class="font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Como seu resultado acontece</h2>
+            <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Como seu resultado acontece</h2>
         </div>
         <div class="relative">
             <div class="hidden lg:block top-8 right-[10%] left-[10%] absolute bg-olive-300 h-px"></div>
@@ -258,10 +258,10 @@
     </section>
 
     <!-- ===================== 5. DEPOIMENTOS (CARROSSEL INFINITO) ===================== -->
-    <section id="depoimentos" class="bg-slate-700 py-24 overflow-hidden text-cream">
+    <section id="depoimentos" class="bg-slate-700 py-16 overflow-hidden text-cream">
         <div class="mx-auto mb-12 px-6 max-w-6xl text-center">
             <p class="mb-4 text-clay-300 text-xs uppercase tracking-[0.3em]">Depoimentos</p>
-            <h2 class="font-display text-4xl md:text-5xl !leading-tight">O que meus pacientes dizem</h2>
+            <h2 class="font-display text-4xl md:text-5xl">O que meus pacientes dizem</h2>
         </div>
         <div class="relative marquee">
             <div class="left-0 z-10 absolute inset-y-0 bg-gradient-to-r from-slate-700 to-transparent w-24 pointer-events-none"></div>
@@ -554,32 +554,35 @@
     </section>
 
     <!-- ===================== 6. VÍDEO DO CONSULTÓRIO ===================== -->
-    <section class="mx-auto px-6 py-24 max-w-6xl">
-        <div class="mb-12 text-center">
-            <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Estrutura</p>
-            <h2 class="font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Conheça o consultório por dentro</h2>
-            <p class="mx-auto mt-4 max-w-2xl text-slate-600">Um espaço pensado para você se sentir acolhido em cada atendimento presencial</p>
-        </div>
-        <div class="relative shadow-xl mx-auto rounded-3xl max-w-4xl aspect-video overflow-hidden" x-data="{ tocando: false }">
-            <video x-ref="video" class="w-full h-full object-cover" controls x-show="tocando" x-cloak>
-                <source src="" type="video/mp4">
-            </video>
-            <div x-show="!tocando" class="group absolute inset-0 flex justify-center items-center cursor-pointer placeholder-img" @click="tocando = true; $nextTick(() => $refs.video.play())">
-                <span class="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/20 transition duration-300"></span>
-                <span class="relative flex justify-center items-center bg-cream/95 shadow-lg rounded-full w-20 h-20 group-hover:scale-105 transition duration-300">
-                    <svg class="size-8 text-clay-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-                <span class="bottom-6 absolute text-cream/90 text-sm">Tour pelo consultório</span>
+    <section class="mx-auto px-6 py-16 max-w-6xl">
+        <div class="items-center gap-12 grid md:grid-cols-2">
+            <div>
+                <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Estrutura</p>
+                <h2 class="mb-6 font-display text-slate-800 text-4xl md:text-5xl">Conheça o consultório por dentro</h2>
+                <p class="mb-4 text-slate-600">Um espaço pensado para você se sentir acolhido em cada atendimento presencial</p>
+                <p class="text-slate-600">Ambiente reservado, equipamentos de avaliação física e todo o cuidado para que sua consulta seja tranquila do começo ao fim</p>
+            </div>
+            <div class="relative shadow-xl mx-auto rounded-3xl w-full max-w-xs aspect-[9/16] overflow-hidden cursor-pointer" x-data="{ tocando: false }" @click="tocando ? $refs.video.pause() : $refs.video.play()">
+                <video x-ref="video" class="size-full object-cover" preload="metadata" playsinline @play="tocando = true" @pause="tocando = false" @ended="tocando = false">
+                    <source src="static/videos/copy_7ADCF2C9-8D9D-437D-838A-41FAB4172E0D.mp4" type="video/mp4">
+                </video>
+                <div x-show="!tocando" x-transition.opacity.duration.300ms class="group absolute inset-0 flex justify-center items-center">
+                    <span class="absolute inset-0 bg-slate-900/30"></span>
+                    <span class="relative flex justify-center items-center bg-cream/95 shadow-lg rounded-full size-16 group-hover:scale-105 transition duration-300">
+                        <svg class="size-8 text-clay-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                    <span class="bottom-6 absolute text-white text-sm">Tour pelo consultório</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ===================== 7. PERGUNTAS FREQUENTES ===================== -->
-    <section id="duvidas" class="bg-olive-100 py-24">
+    <section id="duvidas" class="bg-olive-100 py-16">
         <div class="mx-auto px-6 max-w-3xl" x-data="{ aberta: null }">
             <div class="mb-10 text-center">
                 <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">FAQ</p>
-                <h2 class="font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Perguntas frequentes</h2>
+                <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Perguntas frequentes</h2>
             </div>
             <div class="space-y-4">
                 <div class="bg-cream border border-olive-300 rounded-2xl overflow-hidden">
@@ -637,16 +640,27 @@
                         <p class="px-6 pb-6 text-slate-600 text-sm">A bioimpedância é prática e rápida, mas sofre interferência de fatores externos — hidratação, refeições recentes, fase do ciclo. Já a avaliação antropométrica (medidas com adipômetro e fita métrica), contratada à parte, mede diretamente as dobras cutâneas, com muito menos variação por esses agentes — o que a torna a forma mais confiável de acompanhar sua evolução real ao longo dos meses. Para quem quer precisão no acompanhamento, é o complemento ideal</p>
                     </div>
                 </div>
+                <div class="bg-cream border border-olive-300 rounded-2xl overflow-hidden">
+                    <button @click="aberta = (aberta === 5 ? null : 5)" class="flex justify-between items-center px-6 py-4 w-full text-slate-800 text-left" :aria-expanded="aberta === 5">
+                        <span>Meu atendimento será online, como vai funcionar a avaliação física?</span>
+                        <svg class="w-6 h-6 text-clay-500 transition-transform duration-300 ease-in-out shrink-0" :class="aberta === 5 && 'rotate-45'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div x-show="aberta === 5" x-collapse.duration.500ms x-cloak>
+                        <p class="px-6 pb-6 text-slate-600 text-sm">No atendimento online, a avaliação é adaptada para que você acompanhe sua evolução de casa — e sem perder a análise de composição corporal. Você registra peso, medidas com fita métrica (com orientação de como aferir corretamente) e fotos de acompanhamento em um software que analisa a sua composição corporal, funcionando como uma bioimpedância a distância. Eu recebo esses dados e acompanho seus gráficos de evolução a cada consulta. Assim, online ou presencial, sua evolução nunca é medida só pela balança</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ===================== 8. BLOG ===================== -->
-    <section id="blog" class="mx-auto px-6 py-24 max-w-6xl">
+    <section id="blog" class="mx-auto px-6 py-16 max-w-6xl">
         <div class="flex md:flex-row flex-col md:justify-between md:items-end gap-6 mb-12">
             <div>
                 <p class="mb-4 text-clay-600 text-xs uppercase tracking-[0.3em]">Blog</p>
-                <h2 class="font-display text-slate-800 text-4xl md:text-5xl !leading-tight">Artigos e conteúdos</h2>
+                <h2 class="font-display text-slate-800 text-4xl md:text-5xl">Artigos e conteúdos</h2>
             </div>
             <a href="#" class="inline-flex items-center gap-2 text-clay-600 hover:text-clay-700 text-sm transition duration-300">
                 <span>Ver todos os artigos</span>
